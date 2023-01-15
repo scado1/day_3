@@ -1,5 +1,6 @@
 import pygame
-from config import config
+from settings import config
+from level import Level
 
 
 class Game:
@@ -8,6 +9,7 @@ class Game:
         self.screen = pygame.display.set_mode((config.width, config.height))
         pygame.display.set_caption('day 3')
         self.clock = pygame.time.Clock()
+        self.level = Level()
 
     def run(self):
         while True:
@@ -15,7 +17,8 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
 
-            self.screen.fill('cyan')
+            self.screen.fill('black')
+            self.level.run()
             pygame.display.update()
             self.clock.tick(config.fps)
 
