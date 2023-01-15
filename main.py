@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 from settings import config
 from level import Level
@@ -16,6 +18,7 @@ class Game:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
+                    sys.exit()
 
             self.screen.fill('black')
             self.level.run()
